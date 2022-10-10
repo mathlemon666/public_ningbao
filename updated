@@ -1,0 +1,1666 @@
+\documentclass[lang=cn,10pt]{elegantbook}
+
+\title{math也是柠檬精考研数学辅导讲义}
+
+\author{柠宝}
+%\institute{Elegant\LaTeX{} Program}
+\date{July 29, 2022}
+\version{5.20}
+%\bioinfo{自定义}{信息}
+
+\extrainfo{念念不忘，必有回响}
+
+\setcounter{tocdepth}{3}
+
+\logo{logo-blue.png}
+\cover{cover.jpg}
+
+% 本文档命令
+\usepackage{array}
+\newcommand{\ccr}[1]{\makecell{{\color{#1}\rule{1cm}{1cm}}}}
+
+% 修改标题页的橙色带
+% \definecolor{customcolor}{RGB}{32,178,170}
+% \colorlet{coverlinecolor}{customcolor}
+
+\begin{document}
+
+\maketitle
+\frontmatter
+
+\tableofcontents
+
+\mainmatter
+
+\chapter{ElegantBook 设置说明}
+
+本模板基于基础的 book 文类，所以 book 的选项对于本模板也是有效的（纸张无效，因为模板有设备选项）。默认编码为 UTF-8，推荐使用 \TeX{} Live 编译。
+
+\section{语言模式}
+本模板内含两套基础语言环境 \lstinline{lang=cn}、\lstinline{lang=en}。改变语言环境会改变图表标题的引导词（图，表），文章结构词（比如目录，参考文献等），以及定理环境中的引导词（比如定理，引理等）。不同语言模式的启用如下：
+\begin{lstlisting}
+\documentclass[cn]{elegantbook} 
+\documentclass[lang=cn]{elegantbook}
+\end{lstlisting}
+
+除模板自带的两套语言设定之外，由\textbf{网友}提供的其他语言环境设置如下：
+\begin{itemize}
+  \item 由 \href{https://github.com/VincentMVV}{VincentMVV} 提供的意大利语翻译 \lstinline{lang=it}，相关讨论见 \href{https://github.com/ElegantLaTeX/ElegantBook/issues/85}{Italian translation}；
+  \item 由 \href{https://github.com/abfek66}{abfek66} 提供的法语翻译 \lstinline{lang=fr}，相关讨论见 \href{https://github.com/ElegantLaTeX/ElegantBook/issues/85}{Italian translation}；
+  % \item 由 \href{https://github.com/stultus}{stultus} 提供的马拉雅拉姆语翻译 \lstinline{lang=}，相关讨论见 \href{https://github.com/ElegantLaTeX/ElegantBook/issues/90}{Malayalam translation}；
+  \item 由 \href{https://github.com/inktvis75}{inktvis75} 提供的荷兰语翻译 \lstinline{lang=nl}，相关讨论见 \href{https://github.com/ElegantLaTeX/ElegantBook/issues/108}{Dutch Translation}；
+  \item 由 \href{https://github.com/palkotamas}{palkotamas} 提供的匈牙利语翻译 \lstinline{lang=hu}，相关讨论见 \href{https://github.com/ElegantLaTeX/ElegantBook/issues/111}{Hungarian translation}；
+  \item 由 Lisa 提供的德语翻译 \lstinline{lang=de}，相关讨论见 \href{https://github.com/ElegantLaTeX/ElegantBook/issues/113}{Deutsch translation}；
+  \item 由 Gustavo A. Corradi 提供的西班牙语的翻译 \lstinline{lang=es}，相关讨论见 \href{https://github.com/ElegantLaTeX/ElegantBook/issues/133}{Spanish translation}；
+  \item 由 \href{https://github.com/Altantsooj}{Altantsooj} 提供的蒙古语的翻译 \lstinline{lang=mn}，相关讨论见 \href{https://github.com/ElegantLaTeX/ElegantBook/issues/137}{Mongolian translation}；
+  \item 由 \href{https://github.com/inusturbo}{inusturbo} 提供的日本语的翻译 \lstinline{lang=jp}，相关讨论见 \href{https://github.com/ElegantLaTeX/ElegantBook/issues/172}{Japanese Translation}。
+\end{itemize}
+
+
+
+\begin{remark}
+以上各个语言的设定均为网友设定，我们未对上述翻译进行过校对，如果有问题，请在对应的 issue 下评论。并且，只有中文环境（\lstinline{lang=cn}）才可以输入中文。
+\end{remark}
+
+\section{设备选项}
+最早我们在 ElegantNote 模板中加入了设备选项（\lstinline{device}），后来，我们觉得这个设备选项的设置可以应用到 ElegantBook 中\footnote{不过因为 ElegantBook 模板封面图片的存在，在修改页面设计时，需要对图片进行裁剪。}，而且 Book 一般内容比较多，如果在 iPad 上看无需切边，放大，那用户的阅读体验将会得到巨大提升。你可以使用下面的选项将版面设置为 iPad 设备模式\footnote{默认为 normal 模式，也即 A4 纸张大小。}
+\begin{lstlisting}
+\documentclass[pad]{elegantbook} %or
+\documentclass[device=pad]{elegantbook}
+\end{lstlisting}
+
+\section{颜色主题}
+
+本模板内置 5 组颜色主题，分别为 \textcolor{structure1}{\lstinline{green}}\footnote{为原先默认主题。}、\textcolor{structure2}{\lstinline{cyan}}、\textcolor{structure3}{\lstinline{blue}}（默认）、\textcolor{structure4}{\lstinline{gray}}、\textcolor{structure5}{\lstinline{black}}。另外还有一个自定义的选项  \lstinline{nocolor}。调用颜色主题 \lstinline{green} 的方法为 
+\begin{lstlisting}
+\documentclass[green]{elegantbook} %or
+\documentclass[color=green]{elegantbook}
+\end{lstlisting}
+
+
+\begin{table}[htbp]
+  \caption{ElegantBook 模板中的颜色主题\label{tab:color thm}}
+  \centering
+  \begin{tabular}{ccccccc}
+  \toprule
+    & \textcolor{structure1}{green} 
+    & \textcolor{structure2}{cyan} 
+    & \textcolor{structure3}{blue}
+    & \textcolor{structure4}{gray} 
+    & \textcolor{structure5}{black} 
+    & 主要使用的环境\\
+  \midrule
+    structure & \ccr{structure1}
+    & \ccr{structure2}
+    & \ccr{structure3} 
+    & \ccr{structure4} 
+    & \ccr{structure5} 
+    & chapter \ section \ subsection \\
+    main      & \ccr{main1}
+    & \ccr{main2}
+    & \ccr{main3}
+    & \ccr{main4}
+    & \ccr{main5}
+    & definition \ exercise \ problem \\
+    second    & \ccr{second1}
+    & \ccr{second2}
+    & \ccr{second3}
+    & \ccr{second4}
+    & \ccr{second5}
+    & theorem \ lemma \ corollary\\
+    third     & \ccr{third1}
+    & \ccr{third2}
+    & \ccr{third3}
+    & \ccr{third4}
+    & \ccr{third5}
+    & proposition\\
+  \bottomrule
+  \end{tabular}
+\end{table}
+
+如果需要自定义颜色的话请选择 \lstinline{nocolor} 选项或者使用 \lstinline{color=none}，然后在导言区定义 structurecolor、main、second、third 颜色，具体方法如下：
+\begin{lstlisting}[tabsize=4]
+\definecolor{structurecolor}{RGB}{0,0,0}
+\definecolor{main}{RGB}{70,70,70}    
+\definecolor{second}{RGB}{115,45,2}    
+\definecolor{third}{RGB}{0,80,80}
+\end{lstlisting}
+
+\section{封面}
+
+\subsection{封面个性化}
+
+从 3.10 版本开始，封面更加弹性化，用户可以自行选择输出的内容，包括 \lstinline{\title} 在内的所有封面元素都可为空。目前封面的元素有
+
+\begin{table}[htbp]
+  \centering
+  \caption{封面元素信息}
+  \begin{tabular}{p{0.07\textwidth}p{0.15\textwidth}|p{0.07\textwidth}p{0.15\textwidth}|p{0.07\textwidth}p{0.15\textwidth}}
+    \toprule
+    信息 & 命令 & 信息 & 命令 & 信息 & 命令 \\
+    \midrule
+    标题 & \lstinline|\title| & 副标题 & \lstinline|\subtitle| & 作者 & \lstinline|\author| \\
+    机构 & \lstinline|\institute| & 日期 &  \lstinline|\date| & 版本 & \lstinline|\version| \\
+    箴言 & \lstinline|\extrainfo| & 封面图 & \lstinline|\cover| & 徽标 & \lstinline|\logo| \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+另外，额外增加一个 \lstinline{\bioinfo} 命令，有两个选项，分别是信息标题以及信息内容。比如需要显示{\kaishu User Name：111520}，则可以使用 
+\begin{lstlisting}
+\bioinfo{User Name}{115520}
+\end{lstlisting}
+
+封面中间位置的色块的颜色可以使用下面命令进行修改：
+\begin{lstlisting}
+\definecolor{customcolor}{RGB}{32,178,170}
+\colorlet{coverlinecolor}{customcolor}
+\end{lstlisting}
+
+\subsection{封面图}
+
+本模板使用的封面图片来源于 \href{https://pixabay.com/en/tea-time-poetry-coffee-reading-3240766/}{pixabay.com}\footnote{感谢 China\TeX{} 提供免费图源网站，另外还推荐 \href{https://www.pexels.com/}{pexels.com}。}，图片完全免费，可用于任何场景。封面图片的尺寸为 $1280 \times 1024$, 更换图片的时候请\textbf{严格}按照封面图片尺寸进行裁剪。推荐一个免费的在线图片裁剪网站 \href{https://www.fotor.com/cn}{fotor.com}。用户 QQ 群内有一些合适尺寸的封面，欢迎取用。
+
+\subsection{徽标}
+
+本文用到的 Logo 比例为 1:1，也即正方形图片，在更换图片的时候请选择合适的图片进行替换。
+
+\subsection{自定义封面}
+
+另外，如果使用自定义的封面，比如 Adobe illustrator 或者其他软件制作的 A4 PDF 文档，请把 \lstinline{\maketitle} 注释掉，然后借助 \lstinline{pdfpages} 宏包将自制封面插入即可。如果使用 \lstinline{titlepage} 环境，也是类似。如果需要 2.x 版本的封面，请参考 \href{https://github.com/EthanDeng/etitlepage}{etitlepage}。
+
+\section{章标标题}
+
+本模板内置 2 套\textit{章标题显示风格}，包含 \lstinline{hang}（默认）与 \lstinline{display} 两种风格，区别在于章标题单行显示（\lstinline{hang}）与双行显示（\lstinline{display}），本说明使用了 \lstinline{hang}。调用方式为
+\begin{lstlisting}
+\documentclass[hang]{elegantbook} %or
+\documentclass[titlestyle=hang]{elegantbook}
+\end{lstlisting}
+
+在章标题内，章节编号默认是以数字显示，也即{\kaishu 第 1 章}，{\kaishu 第 2 章}等等，如果想要把数字改为中文，可以使用
+\begin{lstlisting}
+\documentclass[chinese]{elegantbook} %or
+\documentclass[scheme=chinese]{elegantbook}
+\end{lstlisting}
+
+\section{数学环境简介}
+
+在我们这个模板中，我们定义了两种不同的定理模式 \lstinline{mode}，包括简单模式（\lstinline{simple}）和炫彩模式（\lstinline{fancy}），默认为 \lstinline{fancy} 模式，不同模式的选择为
+\begin{lstlisting}
+\documentclass[simple]{elegantbook} %or
+\documentclass[mode=simple]{elegantbook}
+\end{lstlisting}
+
+本模板定义了四大类环境
+
+\begin{itemize}
+  \item \textit{定理类环境}，包含标题和内容两部分，全部定理类环境的编号均以章节编号。根据格式的不同分为 3 种
+    \begin{itemize}
+      \item \textcolor{main}{\textbf{definition}} 环境，颜色为 \textcolor{main}{main}；
+      \item \textcolor{second}{\textbf{theorem、lemma、corollary、axiom、postulate}} 环境，颜色为 \textcolor{second} {second}；
+      \item \textcolor{third}{\textbf{proposition}} 环境，颜色为 \textcolor{third}{third}。
+    \end{itemize}
+  \item \textit{示例类环境}，有 \textbf{example、problem、exercise} 环境（对应于例、例题、练习），自动编号，编号以章节为单位，其中 \textbf{exercise} 有提示符。
+  \item \textit{提示类环境}，有 \textbf{note} 环境，特点是：无编号，有引导符。
+  \item \textit{结论类环境}，有 \textbf{conclusion、assumption、property、remark、solution} 环境\footnote{本模板还添加了一个 result 选项，用于隐藏 \lstinline{solution} 和 \lstinline{proof} 环境，默认为显示（\lstinline{result=answer}），隐藏使用 \lstinline{result=noanswer}。}，三者均以粗体的引导词为开头，和普通段落格式一致。
+\end{itemize}
+
+\subsection{定理类环境的使用}
+
+由于本模板使用了 \lstinline{tcolorbox} 宏包来定制定理类环境，所以和普通的定理环境的使用有些许区别，定理的使用方法如下：
+\begin{lstlisting}
+\begin{theorem}{theorem name}{label}
+  The content of theorem.
+\end{theorem}
+\end{lstlisting}
+
+第一个必选项 \lstinline{theorem name} 是定理的名字，第二个必选项 \lstinline{label} 是交叉引用时所用到的标签，交叉引用的方法为 \verb|\ref{thm:label}|。请注意，交叉引用时必须加上前缀 \lstinline{thm:}。
+
+在用户多次反馈下，4.x 之后，引入了原生定理的支持方式，也就是使用可选项方式：
+
+\begin{lstlisting}
+\begin{theorem}[theorem name] \label{thm:theorem-label}
+  The content of theorem.
+\end{theorem}
+% or 
+\begin{theorem} \label{thm:theorem-withou-name}
+  The content of theorem without name.
+\end{theorem}
+\end{lstlisting}
+
+其他相同用法的定理类环境有：
+
+\begin{table}[htbp]
+   \centering
+   \caption{定理类环境}
+     \begin{tabular}{llll}
+     \toprule
+     环境名 & 标签名 & 前缀 & 交叉引用 \\
+     \midrule
+     definition & label & def   & \lstinline|\ref{def:label}| \\
+     theorem & label & thm   & \lstinline|\ref{thm:label}| \\
+     postulate & label & pos & \lstinline|\ref{pos:label}| \\
+     axiom & label & axi & \lstinline|\ref{axi:label}|\\
+     lemma & label & lem   & \lstinline|\ref{lem:label}| \\
+     corollary & label & cor   & \lstinline|\ref{cor:label}| \\
+     proposition & label & pro   & \lstinline|\ref{pro:label}| \\
+     \bottomrule
+     \end{tabular}%
+   \label{tab:theorem-class}%
+ \end{table}%
+ 
+% \subsection{算法环境}
+
+ 
+% \begin{algorithm}\label{alg:test}
+%   \Input{A bitmap $I$ of size $w \times l$}
+%   \Output{A partition of the bitmap}
+%   \BlankLine
+%   \emph{special treatment of the first line}\;
+%   \For{$i \leftarrow 2$ \KwTo $l$}{
+%     \emph{special treatment of the first element of line $i$}\;
+%     \For{$j \leftarrow 2$ \KwTo $w$}{\label{forins}
+%       $\Left \leftarrow \FindCompress{$I[i,j-1]$}$\;
+%       $\Up \leftarrow \FindCompress{$I[i-1,]$}$\;
+%       $\This \leftarrow \FindCompress{$I[i,j]$}$\;
+%       \If(\tcp*[h]{O(\Left,\This)==1}){\Left compatible with \This}{\label{lt}
+%         \lIf{$\Left < \This$}{$\Union{\Left,\This}$}
+%         \lElse{$\Union{\This,\Left}$}
+%       }
+%       \If(\tcp*[f]{O(\Up,\This)==1}){\Up compatible with \This}{\label{ut}
+%         \lIf{$\Up < \This$}{$\Union{\Up,\This}$}
+%         \tcp{\This is put under \Up to keep tree as flat as possible}\label{cmt}
+%         \lElse{$\Union{\This,\Up}$}\tcp*[r]{\This{} linked to \Up}\label{lelse}
+%       }
+%     }
+%     \lForEach{element $e$ of the line $i$}{\FindCompress{p}}
+%   }
+%   \caption{disjoint decomposition}\label{algo_disjdecomp}
+% \end{algorithm}
+
+
+\subsection{修改计数器}
+
+当前定理等环境计数器按章计数，如果想修改定理类环境按节计数，可以修改计数器选项 thmcnt：
+
+\begin{lstlisting}
+  \documentclass[section]{elegantbook} %or
+  \documentclass[thmcnt=section]{elegantbook}
+\end{lstlisting}
+
+
+\subsection{其他环境的使用}
+
+其他三种环境没有选项，可以直接使用，比如 \lstinline{example} 环境的使用方法与效果：
+\begin{lstlisting}
+\begin{example}
+   This is the content of example environment.
+\end{example}
+\end{lstlisting}
+
+这几个都是同一类环境，区别在于
+
+\begin{itemize}
+  \item 示例环境（example）、练习（exercise）与例题（problem）章节自动编号；
+  \item 注意（note），练习（exercise）环境有提醒引导符；
+  \item 结论（conclusion）等环境都是普通段落环境，引导词加粗。
+\end{itemize}
+
+\section{列表环境}
+本模板借助于 \lstinline{tikz} 定制了 \lstinline{itemize} 和 \lstinline{enumerate} 环境，其中 \lstinline{itemize} 环境修改了 3 层嵌套，而 \lstinline{enumerate} 环境修改了 4 层嵌套（仅改变颜色）。示例如下\\[2ex]
+\begin{minipage}[b]{0.49\textwidth}
+  \begin{itemize}
+    \item first item of nesti;
+    \item second item of nesti;
+      \begin{itemize}
+        \item first item of nestii;
+        \item second item of nestii;
+        \begin{itemize}
+          \item first item of nestiii;
+          \item second item of nestiii.
+        \end{itemize}   
+      \end{itemize}
+  \end{itemize}
+\end{minipage}
+\begin{minipage}[b]{0.49\textwidth}
+  \begin{enumerate}
+    \item first item of nesti;
+    \item second item of nesti;
+      \begin{enumerate}
+        \item first item of nestii;
+        \item second item of nestii;
+        \begin{enumerate}
+          \item first item of nestiii;
+          \item second item of nestiii.
+        \end{enumerate}   
+      \end{enumerate}
+  \end{enumerate}
+\end{minipage}
+
+\section{参考文献}
+文献部分，本模板调用了 biblatex 宏包，并提供了 biber（默认） 和 bibtex 两个后端选项，可以使用 \lstinline{bibend} 进行修改：
+
+\begin{lstlisting}
+  \documentclass[bibtex]{elegantbook}
+  \documentclass[bibend=bibtex]{elegantbook}
+\end{lstlisting}
+
+关于文献条目（bib item），你可以在谷歌学术，Mendeley，Endnote 中取，然后把它们添加到 \lstinline{reference.bib} 中。在文中引用的时候，引用它们的键值（bib key）即可。
+
+为了方便文献样式修改，模板引入了 \lstinline{bibstyle} 和 \lstinline{citestyle} 选项，默认均为数字格式（numeric），参考文献示例：\cite{cn1,en2,en3} 使用了中国一个大型的 P2P 平台（人人贷）的数据来检验男性投资者和女性投资者在投资表现上是否有显著差异。
+
+如果需要设置为国标 GB7714-2015，需要使用：
+\begin{lstlisting}
+  \documentclass[citestyle=gb7714-2015, bibstyle=gb7714-2015]{elegantbook} 
+\end{lstlisting}
+
+如果需要添加排序方式，可以在导言区加入
+\begin{lstlisting}
+  \ExecuteBibliographyOptions{sorting=ynt}
+\end{lstlisting}
+
+启用国标之后，可以加入 \lstinline{sorting=gb7714-2015}。
+
+\section{添加序章}
+
+如果你想在第一章前面添序章，不改变原本章节序号，可以在第一章内容前面使用 
+\begin{lstlisting}
+\chapter*{Introduction}
+\markboth{Introduction}{Introduction}
+The content of introduction.
+\end{lstlisting}
+
+\section{目录选项与深度}
+本模板添加了一个目录选项 \lstinline{toc}，可以设置目录为单栏（\lstinline{onecol}）和双栏（\lstinline{twocol}）显示，比如双栏显示可以使用
+\begin{lstlisting}
+\documentclass[twocol]{elegantbook}
+\documentclass[toc=twocol]{elegantbook}
+\end{lstlisting}
+
+默认本模板目录深度为 1，你可以在导言区使用
+\begin{lstlisting}
+\setcounter{tocdepth}{2}
+\end{lstlisting}
+将其修改为 2 级目录（章与节）显示。
+
+
+\section{章节摘要}
+模板新增了一个章节摘要环境（introduction），使用示例
+\begin{lstlisting}
+\begin{introduction}
+  \item Definition of Theorem
+  \item Ask for help
+  \item Optimization Problem
+  \item Property of Cauchy Series
+  \item Angle of Corner
+\end{introduction}
+\end{lstlisting}
+效果如下：
+\begin{introduction}
+  \item Definition of Theorem
+  \item Ask for help
+  \item Optimization Problem
+  \item Property of Cauchy Series
+  \item Angle of Corner
+\end{introduction}
+
+环境的标题文字可以通过这个环境的可选参数进行修改，修改方法为：
+\begin{lstlisting}
+\begin{introduction}[Brief Introduction]
+...
+\end{introduction}
+\end{lstlisting}
+
+\section{章后习题}
+前面我们介绍了例题和练习两个环境，这里我们再加一个，章后习题（\lstinline{problemset}）环境，用于在每一章结尾，显示本章的练习。使用方法如下
+
+\begin{lstlisting}
+\begin{problemset}
+  \item exercise 1
+  \item exercise 2
+  \item exercise 3
+\end{problemset}
+\end{lstlisting}
+
+
+效果如下：
+\begin{problemset}
+  \item exercise 1
+  \item exercise 2
+  \item exercise 3
+  \item 测试数学公式
+  \begin{equation}
+    a^2+b^2=c_{2_{i}} (1,2) [1,23]
+  \end{equation}
+\end{problemset}
+
+\begin{remark}
+如果你想把 \lstinline{problemset} 环境的标题改为其他文字，你可以类似于 introduction 环境修改 problemset 的可选参数。另外，目前这个环境会自动出现在目录中，但是不会出现在页眉页脚信息中（待解决）。
+\end{remark}
+
+\begin{solution}
+如果你想把 \lstinline{problemset} 环境的标题改为其他文字，你可以类似于 introduction 环境修改 problemset 的可选参数。另外，目前这个环境会自动出现在目录中，但是不会出现在页眉页脚信息中（待解决）。
+\end{solution}
+
+\section{旁注}
+
+在 3.08 版本中，我们引入了 旁注设置选项 \lstinline{marginpar=margintrue} 以及测试命令 \lstinline{\elegantpar} ，但是由此带来一堆问题。我们决定在 3.09 版本中将其删除，并且，在旁注命令得到大幅度优化之前，不会将此命令再次引入书籍模板中。对此造成各位用户的不方便，非常抱歉！不过我们保留了 \lstinline{marginpar} 这个选项，你可以使用 \lstinline{marginpar=margintrue} 获得保留右侧旁注的版面设计。然后使用系统自带的 \lstinline{\marginpar} 或者 \lstinline{marginnote} 宏包的 \lstinline{\marginnote} 命令。
+
+\begin{remark}
+在使用旁注的时候，需要注意的是，文本和公式可以直接在旁注中使用。
+
+\begin{lstlisting}
+% text
+\marginpar{margin paragraph text}
+
+% equation
+\marginpar{
+  \begin{equation}
+    a^2 + b^2 = c^2
+  \end{equation}
+}
+\end{lstlisting}
+
+但是浮动体（表格、图片）需要注意，不能用浮动体环境，需要使用直接插图命令或者表格命令环境。然后使用 \lstinline{\captionof} 为其设置标题。为了得到居中的图表，可以使用 \lstinline{\centerline} 命令或者 \lstinline{center} 环境。更多详情请参考：\href{https://tex.stackexchange.com/questions/5583/caption-of-figure-in-marginpar-and-caption-of-wrapfigure-in-margin}{Caption of Figure in Marginpar}。
+
+\begin{lstlisting}
+% graph with centerline command
+\marginpar{
+  \centerline{
+    \includegraphics[width=0.2\textwidth]{logo.png}
+  }
+  \captionof{figure}{your figure caption}
+}
+
+% graph with center environment
+\marginpar{
+  \begin{center}
+    \includegraphics[width=0.2\textwidth]{logo.png}
+    \captionof{figure}{your figure caption}
+  \end{center}
+}
+\end{lstlisting}
+
+\end{remark}
+
+\chapter{字体选项}
+字体选项独立成章的原因是，我们希望本模板的用户关心模板使用的字体，知晓自己使用的字体以及遇到字体相关的问题能更加便捷地找到答案。
+
+\textcolor{red}{\bfseries 重要提示}：从 3.10 版本更新之后，沿用至今的 newtx 系列字体被重新更改为 cm 字体。并且新增中文字体（\lstinline{chinesefont}）选项。
+
+\section{数学字体选项}
+
+本模板定义了一个数学字体选项（\lstinline{math}），可选项有三个：
+\begin{enumerate}
+  \item \lstinline{math=cm}（默认），使用 \LaTeX{} 默认数学字体（推荐，无需声明）；
+  \item \lstinline{math=newtx}，使用 \lstinline{newtxmath} 设置数学字体（潜在问题比较多）。
+  \item \lstinline{math=mtpro2}，使用 \lstinline{mtpro2} 宏包设置数学字体，要求用户已经成功安装此宏包。
+\end{enumerate}
+
+\section{使用 newtx 系列字体}
+
+如果需要使用原先版本的 \lstinline{newtx} 系列字体，可以通过显示声明数学字体：
+
+\begin{lstlisting}
+\documentclass[math=newtx]{elegantbook}
+\end{lstlisting}
+
+\subsection{连字符}
+
+如果使用 \lstinline{newtx} 系列字体宏包，需要注意下连字符的问题。
+\begin{equation}
+  \int_{R^q} f(x,y) dy.\emph{of\kern0pt f}
+\end{equation}
+的代码为
+\begin{lstlisting}
+\begin{equation}
+  \int_{R^q} f(x,y) dy.\emph{of \kern0pt f}
+\end{equation}
+\end{lstlisting}
+
+\subsection{宏包冲突}
+
+另外在 3.08 版本中，有用户反馈模板在和 \lstinline{yhmath} 以及 \lstinline{esvect} 等宏包搭配使用的时候会出现报错：
+\begin{lstlisting}
+LaTeX Error:
+   Too many symbol fonts declared.
+\end{lstlisting}
+
+原因是在使用 \lstinline{newtxmath} 宏包时，重新定义了数学字体用于大型操作符，达到了 {\heiti 最多 16 个数学字体} 的上限，在调用其他宏包的时候，无法新增数学字体。为了减少调用非常用宏包，在此给出如何调用 \lstinline{yhmath} 以及 \lstinline{esvect} 宏包的方法。
+
+请在 \lstinline{elegantbook.cls} 内搜索 \lstinline{yhmath} 或者 \lstinline{esvect}，将你所需要的宏包加载语句\textit{取消注释}即可。
+\begin{lstlisting}
+%%% use yhmath pkg, uncomment following code
+% \let\oldwidering\widering
+% \let\widering\undefined
+% \RequirePackage{yhmath}
+% \let\widering\oldwidering
+
+%%% use esvect pkg, uncomment following code
+% \RequirePackage{esvect}
+\end{lstlisting}
+
+\section{中文字体选项}
+模板从 3.10 版本提供中文字体选项 \lstinline{chinesefont}，可选项有
+\begin{enumerate}
+\item \lstinline{ctexfont}：默认选项，使用 \lstinline{ctex} 宏包根据系统自行选择字体，可能存在字体缺失的问题，更多内容参考 \lstinline{ctex} 宏包\href{https://ctan.org/pkg/ctex}{官方文档}\footnote{可以使用命令提示符，输入 \lstinline{texdoc ctex} 调出本地 \lstinline{ctex} 宏包文档}。
+\item \lstinline{founder}：方正字体选项（\textbf{需要安装方正字体}），后台调用 \lstinline{ctex} 宏包并且使用 \lstinline{fontset=none} 选项，然后设置字体为方正四款免费字体，方正字体下载注意事项见后文，用户只需要安装方正字体即可使用该选项。
+\item \lstinline{nofont}：后台会调用 \lstinline{ctex} 宏包并且使用 \lstinline{fontset=none} 选项，不设定中文字体，用户可以自行设置中文字体，具体见后文。
+\end{enumerate}
+
+\subsection{方正字体选项}
+由于使用 \lstinline{ctex} 宏包默认调用系统已有的字体，部分系统字体缺失严重，因此，用户希望能够使用其它字体，我们推荐使用方正字体。方正的{\songti 方正书宋}、{\heiti 方正黑体}、{\kaishu 方正楷体}、{\fangsong 方正仿宋}四款字体均可免费试用，且可用于商业用途。用户可以自行从\href{http://www.foundertype.com/}{方正字体官网}下载此四款字体，在下载的时候请\textbf{务必}注意选择 GBK 字符集，也可以使用 \href{https://www.latexstudio.net/}{\LaTeX{} 工作室}提供的\href{https://pan.baidu.com/s/1BgbQM7LoinY7m8yeP25Y7Q}{方正字体，提取码为：njy9} 进行安装。安装时，{\kaishu Win 10 用户请右键选择为全部用户安装，否则会找不到字体。}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=0.9\textwidth]{founder.png}
+\end{figure}
+
+\subsection{其他中文字体}
+如果你想完全自定义字体\footnote{这里仍然以方正字体为例。}，你可以选择 \lstinline{chinesefont=nofont}，然后在导言区设置
+\begin{lstlisting}
+\setCJKmainfont[BoldFont={FZHei-B01},ItalicFont={FZKai-Z03}]{FZShuSong-Z01}
+\setCJKsansfont[BoldFont={FZHei-B01}]{FZKai-Z03}
+\setCJKmonofont[BoldFont={FZHei-B01}]{FZFangSong-Z02}
+\setCJKfamilyfont{zhsong}{FZShuSong-Z01}
+\setCJKfamilyfont{zhhei}{FZHei-B01}
+\setCJKfamilyfont{zhkai}[BoldFont={FZHei-B01}]{FZKai-Z03}
+\setCJKfamilyfont{zhfs}[BoldFont={FZHei-B01}]{FZFangSong-Z02}
+\newcommand*{\songti}{\CJKfamily{zhsong}}
+\newcommand*{\heiti}{\CJKfamily{zhhei}}
+\newcommand*{\kaishu}{\CJKfamily{zhkai}}
+\newcommand*{\fangsong}{\CJKfamily{zhfs}}
+\end{lstlisting}
+\chapter{asd数三）}
+12
+\chapter{asd数三）}
+12\
+chapter{asd数三）}
+12
+\chapter{asd数三）}
+12
+\chapter{asd数三）}
+12
+\chapter{asd数三）}
+12
+\chapter{asd数三）}
+12
+\chapter{asd数三）}
+12
+\chapter{asd数三）}
+12
+\chapter{绝活级数（数一）}
+\begin{introduction}
+  \item 第一节 \quad 常数项级数及其选择题秒杀
+  \item 第二节 \quad 幂级数的收敛判别法和展开
+  \item 第三节 \quad 幂级数的求和（送分绝活）
+  \item 第四节 \quad $Fourier$级数
+  
+\end{introduction}
+本章学习的注意事项：
+\begin{itemize}
+    \item 注意条件的充分性和必要性
+    \item 联系反常积分相互对比,注意两者的异同，21大纲新增“级数的积分判别法”
+    \item 时刻注意“形式上的统一”，即“整体性”和“一致性”
+\end{itemize}
+\section{常数项级数及其选择题秒杀}
+\subsection{常数项级数的概念}
+同反常积分一样，级数作为极限的一种，也是“用有限定义无限”，当然在第一章讲的“存在$\pm$不存在$=$不存在”对于级数来说同样适用（级数收敛理解为极限存在）
+\begin{definition}[数项级数]\label{数项级数}
+定义无穷多个数$u_{1}, u_{2}, \cdots, u_{n}, \cdots$依次相加所得到的表达式$$
+\sum_{n=1}^{\infty} u_{n}=u_{1}+u_{2}+\cdots+u_{n}+\cdots
+$$称为无穷级数（简称级数）$u_n$称为级数的一般项或通项
+
+级数部分和为$$
+S_{n}=\sum_{k=1}^{n} u_{k}=u_{1}+u_{2}+\cdots+u_{n},(n=1,2, \cdots)
+$$
+注意到此时$n$是一个具体的数字，若数列${S_n}$的极限存在，即$\displaystyle\lim _{n \rightarrow \infty} S_{n}$存在，则称级数$\sum_{n=1}^{\infty} u_{n}$收敛；否则称级数$\displaystyle\sum_{n=1}^{\infty} u_{n}$发散。当级数$\displaystyle\sum_{n=1}^{\infty} u_{n}$收敛时，称极限值$\displaystyle\lim _{n \rightarrow \infty} S_{n}$为此级数的和，即$$
+\sum_{n=1}^{\infty} u_{n}=\lim _{n \rightarrow \infty} S_{n}=\lim _{n \rightarrow \infty} \sum_{k=1}^{n} u_{k}=S
+$$当级数收敛时，$r_{n}=S-S_{n}=u_{n+1}+u_{n+2}+\cdots$称为级数的余项（或余和）
+\end{definition}
+显然收敛时$r_{n} \rightarrow 0$
+\begin{proposition}
+有限项不会影响级数的敛散性，但是可能会影响收敛级数的收敛值
+\end{proposition}
+\subsection{数项级数的基本性质}
+\begin{theorem}{收敛级数的必要条件}{label}
+设级数$\sum_{n=1}^{\infty} u_{n}$收敛，则$\displaystyle\lim _{n \rightarrow \infty} u_{n}=0$
+\end{theorem}
+\newpage
+\begin{note}
+\begin{itemize}
+    \item 此条件是必要非充分条件
+    \item （任何定理均可考虑其逆否命题来加深理解和应用）其否命题为：若$\displaystyle\lim _{n \rightarrow \infty} u_{n} \neq 0$原级数发散
+\end{itemize}
+\end{note}
+\begin{theorem}{收敛级数的线性运算}
+若两个级数$\displaystyle\sum_{n=1}^{\infty} u_{n}$与$\displaystyle\sum_{n=1}^{\infty} v_{n}$同时收敛，则
+$$
+\sum_{n=1}^{\infty}\left(\lambda u_{n}+\mu v_{n}\right)=\lambda \sum_{n=1}^{\infty} u_{n}+\mu \sum_{n=1}^{\infty} v_{n}
+$$
+其中$\lambda, \mu$为常数
+\end{theorem}
+\begin{theorem}{收敛级数的结合律}
+若级数$\displaystyle\sum_{n=1}^{\infty} u_{n}$收敛，在不改变其项的次序的前提下，任意加括号，并把每个括号内的各项的和作为一项，这样所得到的新级数仍收敛，且和不变
+
+特别的，若$\displaystyle\sum_{n=1}^{\infty} u_{n}$收敛，则
+$$
+\sum_{n=1}^{\infty}\left(u_{2 n-1}+u_{2 n}\right)=\sum_{n=1}^{\infty}\left(u_{3 n-2}+u_{3 n-1}+u_{3 n}\right)=\sum_{n=1}^{\infty} u_{n}
+$$
+\end{theorem}
+\begin{note}
+\begin{itemize}
+    \item 只是原级数收敛$\rightarrow$加括号收敛，反之不成立
+    \item 考虑其逆否题，若加括号发散$\rightarrow$原级数发散
+\end{itemize}
+\end{note}
+\begin{proposition}
+若$\displaystyle\sum_{n=1}^{\infty} u_{n}$满足$\displaystyle\lim _{n \rightarrow+\infty} u_{n}=0$又其相继两项加括号所得的级数$\displaystyle\sum_{n=1}^{\infty}\left(u_{2 n-1}+u_{2 n}\right)$收敛，则原级数$\displaystyle\sum_{n=1}^{\infty} u_{n}$必定收敛，且$\displaystyle\sum_{n=1}^{\infty}\left(u_{2 n-1}+u_{2 n}\right)=\sum_{n=1}^{\infty} u_{n}$
+\end{proposition}
+\subsection{两个重要的级数（$p$级数与$q$级数）}
+注意$p$级数与$q$级数和反常积分的两个标准函数的联系
+
+\begin{theorem}{几何级数（$q$级数）}
+$$
+\sum_{n=0}^{\infty} q^{n}\left\{\begin{array}{l}
+|q|<1 \quad \text {收敛} \\
+|q| \geqslant 1 \quad \text {发散}
+\end{array}\right.
+$$
+\end{theorem}
+
+\begin{theorem}{$p$级数}
+$$
+\sum_{n=1}^{\infty} \frac{1}{n^{p}}\left\{\begin{array}{l}
+p>1 \quad \text {收敛} \\
+p \leqslant 1 \quad \text {发散}
+\end{array}\right.
+$$
+\end{theorem}
+
+
+\begin{theorem}{补充一个常考的}
+$$
+\sum_{n=2}^{\infty} \frac{1}{n^{p} \ln ^{q} n}\left\{\begin{array}{l}
+p>1, \forall q \\
+p=1 \text { 且 } q>1
+\end{array}\right. \text {收敛, 其余均发散}
+$$
+\end{theorem}
+\begin{note}
+以下结论仅针对\textcolor[rgb]{1,0,0}{正项级数}适用，也就是说若题干只谈“级数”没有明确说明“正项级数”或者讨论其“绝对收敛”的情况，一律 \textcolor[rgb]{1,0,0}{不适用}，常出现在选择题中。
+\end{note}
+\subsection{正项级数的的概念和收敛的充要条件}
+\begin{theorem}
+若$u_{n} \geqslant 0$则，则称$\displaystyle\sum_{n=1}^{\infty} u_{n}$为正项级数，正项级数的特点是部分和数列$\left\{S_{n}\right\}$单调非减，利用极限的“单调有界准则可知，正项级数$\displaystyle\sum_{n=1}^{\infty} u_{n}$收敛的\textcolor[rgb]{1,0,0}{充要条件}为$\rightarrow$部分和数列有（上）界
+\end{theorem}
+\subsection{正项级数的判别法之比较判别法}
+
+\begin{theorem}
+设$u_{n} \leq k v_{n}, u_{n} \geq 0, v_{n} \geq 0$，则
+$$
+\sum_{n=1}^{\infty} v_{n} \text { 收敛 } \rightarrow \sum_{n=1}^{\infty} u_{n} \text { 收敛 }
+$$
+$$
+\sum_{n=1}^{\infty} u_{n} \text { 发散 } \rightarrow \sum_{n=1}^{\infty} v_{n} \text { 发散 }
+$$
+\end{theorem}
+\begin{note}
+同反常积分的比较判别法一样：大的收敛$\rightarrow$小的收敛；小的发散$\rightarrow$大的发散
+\end{note}
+
+\subsection{正项级数的判别法之比较判别法的极限形式}
+\begin{theorem}
+设$\displaystyle\lim _{n \rightarrow \infty} \frac{u_{n}}{v_{n}}=l(0 \leqslant l \leqslant+\infty)$
+
+1.若$0<l<+\infty$, , 则 $\displaystyle\sum_{n=1}^{\infty} u_{n}$ 与 $\displaystyle\sum_{n=1}^{\infty} v_{n}$ 同敛散
+
+2.若 $l=0$, 则 $\displaystyle\sum_{n=1}^{\infty} v_{n}$ 收敛 $\rightarrow \sum_{n=1}^{\infty} u_{n}$ 收敛, $\displaystyle\sum_{n=1}^{\infty} u_{n}$ 发散 $\rightarrow \displaystyle\sum_{n=1}^{\infty} v_{n}$ 发散
+
+3.若$l=+\infty$, 则 $\displaystyle\sum_{n=1}^{\infty} v_{n}$ 发散 $\rightarrow \displaystyle\sum_{n=1}^{\infty} u_{n}$ 发散, $\displaystyle\sum_{n=1}^{\infty} u_{n}$ 收敛 $\displaystyle\rightarrow \sum_{n=1}^{\infty} v_{n}$ 收敛
+\end{theorem}
+\begin{note}
+\par
+1.站在“无穷小的阶”的高度来理解比较判别法的极限形式
+
+2.与反常积分中“找分母的等价无穷大”形式相同
+
+3.$p$级数与$q$级数常常用作比较的基准级数
+\end{note}
+\subsection{正项级数的判别法之比值判别法}
+\begin{theorem}
+若$\displaystyle\lim _{n \rightarrow \infty}\left|\frac{u_{n+1}}{u_{n}}\right|=\rho$，则
+$$
+\sum_{n=1}^{\infty} u_{n}\left\{\begin{array}{l}
+\text { 收敛, } \rho<1 \\
+\text { 发散, } \rho>1 \\
+\text { 不一定, } \rho=1
+\end{array}\right.
+$$
+\end{theorem}
+\begin{note}
+\par
+1.通项越小，收敛的“概率”就越高
+
+2.这$\rho<1$理解为当$n>N$整个通项的公比$q<1$
+
+3.收敛和发散以“$1$”为界限
+\end{note}
+\subsection{正项级数的判别法之根值判别法}
+\begin{theorem}
+若$\displaystyle\lim _{n \rightarrow \infty} \sqrt[n]{u_{n}}=\rho$，则
+$$
+\sum_{n=1}^{\infty} u_{n} \begin{cases}\text { 收敛, } & \rho<1 \\ \text { 发散, } & \rho>1 \\ \text { 不一定, } & \rho=1\end{cases}
+$$
+\end{theorem}
+\subsection{正项级数的判别法之确定$u_{n}$的阶数（可用泰勒展开）}
+\begin{note}
+泰勒展开的目的是找等价无穷小（用于确定$u_{n}$的阶）
+\end{note}
+\begin{theorem}
+设$u_{n}>0$，$ \displaystyle\lim _{n \rightarrow \infty} \frac{u_{n}}{\frac{1}{n^{p}}}=A$
+
+1.若$0 \leqslant A<+\infty, p>1$ （即当 $n \rightarrow \infty$ 时 $u_{n}$是$\frac{1}{n}$ 的 $p$ 阶或高于 $p$ 阶的无穷小, $p>1$）则$\displaystyle\sum_{n=1}^{\infty} u_{n}$收敛
+
+2.若$0<A \leqslant+\infty, p \leqslant 1$ （即当 $n \rightarrow \infty$ 时 $u_{n}$是$\frac{1}{n}$ 的 $p$ 阶或低于 $p$ 阶的无穷小, $p\leqslant1$）则$\displaystyle\sum_{n=1}^{\infty} u_{n}$发散
+\end{theorem}
+\begin{note}
+若 $u_{n} \geq 0$ 且当 $n \rightarrow \infty$ 时, $u_{n}=o\left(\frac{1}{n}\right)$, \textcolor[rgb]{1,0,0}{不能断定} $\displaystyle\sum_{n=1}^{\infty} u_{n}$ 收敛
+\end{note}
+\subsection{交错级数的定义和判别法}
+\begin{definition}[交错级数]
+若$u_{n}>0$，则称$\displaystyle\sum_{n=1}^{\infty}(-1)^{n-1} u_{n}=u_{1}-u_{2}+u_{3}-u_{4}+\cdots$
+\end{definition}
+\begin{note}
+\par
+1.对于交错级数，第一项是$+$还是$-$不是重点，重点一定是$+-$交替的
+
+2.$u_{n}>0$
+\end{note}
+\begin{theorem}{莱布尼茨交级数判别法}
+设上述交错级数满足
+
+1.$u_{n} \geqslant u_{n+1}, n \geqslant N \geqslant 1$
+
+2.$\displaystyle\lim _{n \rightarrow \infty} u_{n}=0$
+
+则$\displaystyle\sum_{n=1}^{\infty}(-1)^{n-1} u_{n}$收敛
+
+\end{theorem}
+\subsection{级数学习的核心思想}
+\begin{proposition}
+上述所讲的判别法，只是充分条件，而非必要条件，即
+$$
+\text { 满足条件 } \rightarrow \text { 收敛 }
+$$
+$$
+\text { 级数收敛 } \text{\textcolor[rgb]{1,0,0}{不能推出}} \text { 满足条件 }
+$$
+\end{proposition}
+\subsection{绝对收敛与条件收敛}
+上面给出了若干正项级数的判别法和交错级数的判别法，对于一般的通项符号不规律不安华的级数，可以优先考虑其绝对敛散性
+\begin{definition}{绝对收敛和条件收敛}
+若级数 $\displaystyle\sum_{n=1}^{\infty}\left|u_{n}\right|$ 收敛, 则称级数 $\displaystyle\sum_{n=1}^{\infty} u_{n}$ 绝对收敛
+
+若级数 $\displaystyle\sum_{n=1}^{\infty} u_{n}$ 收敛, 而 $\displaystyle\sum_{n=1}^{\infty}\left|u_{n}\right|$ 发散, 则称级数 $\displaystyle\sum_{n=1}^{\infty} u_{n}$ 条件收敛
+\end{definition}
+\begin{note}
+正项级数因为加了绝对值之后是其本身，所以正项级数收敛$\leftrightarrow$正项级数绝对收敛
+\end{note}
+\begin{theorem}{绝对收敛和条件收敛的性质}
+1.绝对收敛的级数一定收敛，即
+$$
+\displaystyle\sum_{n=1}^{\infty}\left|u_{n}\right| \text { 收敛 } \rightarrow\displaystyle\sum_{n=1}^{\infty} u_{n} \text { 必收敛 }
+$$
+即加了绝对值收敛\leftarrow原级数（去掉绝对值）收敛
+
+2.条件收敛的级数所有的正项（或负项）构成的级数\textcolor[rgb]{1,0,0}{一定发散}，即
+$$
+\sum_{n=1}^{\infty} u_{n} \text { 条件收敛 } \rightarrow \sum_{n=1}^{\infty} \frac{u_{n}+\left|u_{n}\right|}{2} \text { 和 } \sum_{n=1} \frac{u_{n}-\left|u_{n}\right|}{2} \text { 发散 }
+$$
+\end{theorem}
+\subsection{级数收敛性的$\pm \times$（重点）}
+注意到这里的乘法指的是$\displaystyle\sum_{n=1}^{\infty} u_{n} v_{n}$
+
+1.
+$$
+\text { 收敛 }\pm\text{收敛}=
+$$
+
+2.
+$$
+\text { 收敛 }\times\text{收敛}=
+$$
+
+\subsection{绝对收敛与条件收件级数的$\pm \times$（重点）}
+\begin{note}
+注意到“收敛数列必定有界”
+\end{note}
+
+1.
+$$
+\text{绝对}\pm\text{绝对}
+$$
+
+2.
+$$
+\text{绝对}\pm\text{条件}
+$$
+
+3.
+$$
+\text{条件}\pm\text{条件}
+$$
+
+4.
+$$
+\text{绝对}\times\text{绝对}
+$$
+
+5.
+$$
+\text{绝对}\times\text{条件}
+$$
+
+上述反例需要掌握
+
+\subsection{选择题的秒杀技巧}
+\begin{note}
+\begin{itemize}
+    \item 没见过的都是错的
+    \item 注意条件的充分性和必要性
+    \item 看见乘法，利用不等式$$a b \leq \frac{a^{2}+b^{2}}{2}$$注意除法也是乘法
+    \item 先考虑其绝对收敛性（先加绝对值再说）
+    \item $\displaystyle\sum_{n=1}^{\infty}\left(a_{n+1}-a_{n}\right)$ 的敛散性与 $\displaystyle\lim _{n \rightarrow \infty} a_{n}$ 的敛散性相同
+\end{itemize}
+\end{note}
+
+
+\begin{example}
+若正项级数 $\displaystyle\sum_{n=1}^{\infty} a_{n}$ 收敛, 则 $\displaystyle\sum_{n=1}^{\infty}(-1)^{n} \frac{\sqrt{a_{n}}}{n}(\quad)$
+
+A. 发散
+
+B. 条件收敛
+
+C. 绝对收敛
+
+D. 敛散性不确定
+\end{example}
+\begin{example}
+设级数$\displaystyle\sum_{n=1}^{\infty} a_{n}$发散$(a_{n}>0)$，令$S_{n}=a_{1}+a_{2}+\cdots+a_{n}$，则$\displaystyle\sum_{n=1}^{\infty}\left(\frac{1}{S_{n}}-\right.\left.\frac{1}{S_{n+1}}\right)( \quad )$
+
+A.发散
+
+B.收敛于$-\frac{1}{a_{1}}$
+
+C.收敛于$0$
+
+D.敛散性不确定
+\end{example}
+\begin{example}
+\text { 级数 } \displaystyle\sum_{n=1}^{\infty}(-1)^{n}\left(1-\cos \frac{a}{n}\right)(a>0)( \quad )
+
+A. 发散
+
+B. 条件收敛
+
+C. 绝对收敛
+
+D. 敛散性与$a$有关
+\end{example}
+
+\begin{example}
+级数 $\displaystyle\sum_{n=1}^{\infty} u_{n}$ 收敛 $\left(u_{n}>0\right)$, 则下列结论正确的是 $(\quad)$ 
+
+A.$\displaystyle\lim _{n \rightarrow \infty} \frac{u_{n+1}}{u_{n}}=\rho<1$
+
+B.$\displaystyle\lim _{n \rightarrow \infty} \sqrt[n]{u_{n}}=\rho<1$
+
+C.$\displaystyle\sum_{n=1}^{\infty}\left(u_{n}+u_{n+1}\right)$一定收敛
+
+D.$\displaystyle\sum_{n=1}^{\infty} \sqrt{u_{n}}$收敛
+\end{example}
+
+\begin{example}
+设$\displaystyle\sum_{n=1}^{\infty} u_{n}$收敛，则下列正确的是$(\quad)$
+
+A.$\displaystyle\sum_{n=1}^{\infty} u_{n}^{2}$一定收敛
+
+B.$\displaystyle\sum_{n=1}^{\infty} u_{n}^{2}$一定发散
+
+C.$\displaystyle\sum_{n=1}^{\infty} u_{n}$绝对收敛
+
+D.$\displaystyle\sum_{n=1}^{\infty} u_{n}$是正项级数，则$\displaystyle\sum_{n=1}^{\infty} u_{n}^{2}$一定收敛
+\end{example}
+
+\begin{example}
+设常数$k>0$则级数$\displaystyle\sum_{n=1}^{\infty}(-1)^{n} \frac{k+n}{n^{2}}(\quad)$
+
+A.发散
+
+B.绝对收敛
+
+C.条件收敛
+
+D.敛散性与$k$有关
+
+\end{example}
+
+\begin{example}
+设$u_{n}=(-1)^{n} \ln \left(1+\frac{1}{\sqrt{n}}\right)$，则$(\quad)$
+
+A.$\displaystyle\sum_{n=1}^{\infty} u_{n}$与$\displaystyle\sum_{n=1}^{\infty} u_{n}^{2}$都收敛
+
+B.$\displaystyle\sum_{n=1}^{\infty} u_{n}$与$\displaystyle\sum_{n=1}^{\infty} u_{n}^{2}$都发散
+
+C.$\displaystyle\sum_{n=1}^{\infty} u_{n}$收敛，而$\displaystyle\sum_{n=1}^{\infty} u_{n}^{2}$发散
+
+D.$\displaystyle\sum_{n=1}^{\infty} u_{n}$发散，$\displaystyle\sum_{n=1}^{\infty} u_{n}^{2}$收敛
+\end{example}
+
+\begin{example}
+设$\displaystyle\sum_{n=1}^{\infty} u_{n}$收敛，则下列级数必收敛的是$(\quad)$
+
+A.$\displaystyle\sum_{n=1}^{\infty}(-1)^{n} \frac{u_{n}}{n}$
+\end{example}
+
+B.$\displaystyle\sum_{n=1}^{\infty} u_{n}^{2}$
+
+C.$\displaystyle\sum_{n=1}^{\infty}\left(u_{2 n-1}-u_{2 n}\right)$
+
+D.$\displaystyle\sum_{n=1}^{\infty}\left(u_{n}+u_{n+1}\right)$
+
+\begin{example}
+下列说法正确的是$(\quad)$
+
+A.若 $\displaystyle\lim _{n \rightarrow \infty} \frac{u_{n+1}}{u_{n}}<1$, 则 $\displaystyle\sum_{n=1}^{\infty} u_{n}$ 一定收敛
+
+B若 $\displaystyle\sum_{n=1}^{\infty} u_{n}$ 收敛, 则 $\displaystyle\sum_{n=1}^{\infty}(-1)^{n} u_{n}$ 一定收敛
+
+C.若正项级数 $\displaystyle\sum_{n=1}^{\infty} u_{n}$ 收收, 则 $\displaystyle\sum_{n=1}^{\infty} u_{n}^{2}$ 一定收敛
+
+D.$\displaystyle\lim _{n \rightarrow \infty} \frac{u_{n}}{v_{n}}=1$ 且 $\displaystyle\sum_{n=1}^{\infty} u_{n}$ 收敛, 则 $\displaystyle\sum_{n=1}^{\infty} v_{n}$ 一定收敛
+\end{example}
+
+\newpage
+\section{幂级数的收敛判别法和展开}
+下设$\displaystyle\sum_{n=1}^{\infty} u_{n}(x)$的基本要求是$u_{n}(x)(n=1,2, \cdots)$有共同的定义域
+\subsection{收敛点与收敛域的概念}
+\begin{definition}
+若 $x_{0} \in I$, 对应的常数项级数 $\displaystyle\sum_{n=1}^{\infty} u_{n}\left(x_{0}\right)$ 收敛, 则称 $x_{0}$ 是 $\displaystyle\sum_{n=1}^{\infty} u_{n}(x)$ 的收敛点
+
+收敛点的集合$\rightarrow$收敛域
+
+发散点的集合$\rightarrow$发散域
+
+\end{definition}
+\subsection{幂级数的定义}
+首先要说明的是，幂级数是函数项级数的一种特殊形式
+\begin{definition}{幂级数}
+形如$\displaystyle\sum_{n=0}^{\infty} a_{n}\left(x-x_{0}\right)^{n}$级数称为$x-x_{0}$的幂级数，其中$a_{n}(n=0,1,2, \cdots)$为常数，称为幂级数的系数。当$x_{0}=0$时，$\displaystyle\sum_{n=0}^{\infty} a_{n} x^{n}$称为$x$的幂级数
+\end{definition}
+\subsection{函数项级数的重要理解}
+函数项级数只是将数项级数$\displaystyle\sum_{n=1}^{\infty} u_{n}$中的$u_{n}$“函数化”为$u_{n}(x)$，本质上$u_{n}(x)$最终还是（关于$x$的）一个数，所以数项级数中的判别法仍然适用
+\begin{example}
+求下列函数项级数的收敛域
+
+（1）
+$$
+\sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{2 n-1}\left(\frac{1-x}{1+x}\right)^{n}
+$$
+
+（2）
+$$
+\sum_{n=1}^{\infty} \frac{1}{1+x^{n}}
+$$
+
+\end{example}
+
+
+\begin{note}
+在理解下列有关定理的时候，要特别注意：同反常积分讲的一样，\textcolor[rgb]{1,0,0}{通项的值越小，收敛的“概率”就越高}，注意到此处的“小”仅和$0$作比较（想想看为什么？）
+\end{note}
+\subsection{幂级数的收敛之阿贝尔定理}
+\begin{theorem}
+1.若$\displaystyle\sum_{n=0}^{\infty} a_{n} x^{n}$ 当 $x=x_{0}\left(x_{0} \neq 0\right)$时收敛，则当$|x|<\left|x_{0}\right|$时，$\displaystyle\sum_{n=0}^{\infty} a_{n} x^{n}$绝对收敛
+
+2.若 $\displaystyle\sum_{n=0}^{\infty} a_{n} x^{n}$ 当 $x=x_{0}$ 时发散, 则当 $|x|>\left|x_{0}\right|$ 时, $\displaystyle\sum_{n=0}^{\infty} a_{n} x^{n}$ 发散
+\end{theorem}
+\begin{note}
+注意到上述两条定义对于端点处是无法判断的，只能单独讨论。即使是单独讨论，通常出现的形式也是莱布尼茨交错级数，调和级数等简单的判定，请勿担心
+\end{note}
+由上述的阿贝尔定理，我们可以得到如下关于幂级数$\displaystyle\sum_{n=0}^{\infty} a_{n} x^{n}$收敛性的可能情况如下
+\begin{itemize}
+    \item 对任何$x \in(-\infty,+\infty)$均收敛
+    \item 仅在$x=0$初收敛
+    \item 存在一个正数$R$，当$|x|<R$时绝对收敛，$|x|>R$时发散，至于$x=\pm R$时的敛散性，需要单独讨论（具体如何讨论后面会讲）
+\end{itemize}
+\subsection{幂级数的收敛之收敛半径和收敛域的求法}
+在上述定理中, 正数 $R$ 称为幂级数 $\displaystyle\sum_{n=0}^{\infty} a_{n} x^{n}$ 的收敛半径, \textcolor[rgb]{1,0,0}{开区间}$(-R, R)$ 称为它的收敛区间, 再考察 $x=\pm R$ 的时候的敛散性, 就可以得出该级数收敛点的全体, 称为收敛域
+\begin{note}
+要注意收敛半径、收敛区间、收敛域三者的区别。其中收敛半径是一个\textcolor[rgb]{1,0,0}{非负实数，收敛区间是开区间}，收敛域是整个收敛点的集合（可能是开区间、闭区间、半开半闭区间）
+\end{note}
+
+\begin{theorem}[收敛半径的根值判别法]
+$$
+\text { 如果 } \lim _{n \rightarrow \infty}\left|\frac{a_{n+1}}{a_{n}}\right|=\rho \text {, 则 } R=\frac{1}{\rho}
+$$
+\end{theorem}
+\begin{theorem}[收敛半径的比值判别法]
+$$
+\text { 如果 } \lim _{n \rightarrow \infty} \sqrt[n]{\left|a_{n}\right|}=\rho \text {, 则 } R=\frac{1}{\rho}
+$$
+\end{theorem}
+\begin{note}
+上述两个判别法仅仅是\textcolor[rgb]{1,0,0}{充分非必要}条件！还要注意到是加了绝对值的
+\end{note}
+\subsection{关于非标准形式$\displaystyle\sum_{n=0}^{\infty} a_{n} x^{n}$收敛半径的求法}
+在求收敛半径的时候，若并非标准的$\displaystyle\sum_{n=0}^{\infty} a_{n} x^{n}$，而是诸如$\displaystyle\sum_{n=0}^{\infty} a_{n} x^{2 n+1}$的形式，作如下处理：将整个$a_{n} x^{2 n+1}$看作一个整体进行根值判别或比值判别，注意到$$
+\displaystyle\sum_{n=0}^{\infty} a_{n} x^{2 n+1} \text { 的敛散性和 } \displaystyle\sum_{n=0}^{\infty} a_{n} x^{2 n}\text{、} \displaystyle\sum_{n=1}^{\infty} a_{n} x^{2 n-1} \text { 的\textcolor[rgb]{1,0,0}{敛散性相同} }
+$$
+例如：对于级数$\displaystyle\sum_{n=0}^{\infty} a_{n} x^{2 n+1}$，为了求其收敛半径，可以考虑极限（假设极限存在）
+$$
+\lim _{n \rightarrow \infty}\left|\frac{a_{n+1}x^{2n+3}}{a_{n}x^{2n+1}}\right|
+$$
+同理可以考虑比值判别法的形式（不再赘述）
+
+\subsection{两个幂级数四则运算的收敛半径}
+设幂级数$\displaystyle\sum_{n=0}^{\infty} a_{n} x^{n}$ 的收敛半径为 $R_{1}$, $\displaystyle\sum_{n=0}^{\infty} b_{n} x^{n}$ 的收敛半径为 $R_{2}$，令$R=\min \left\{R_{1}, R_{2}\right\}$
+
+1.加法：$\displaystyle\sum_{n=0}^{\infty} a_{n} x^{n}+\sum_{n=0}^{\infty} b_{n} x^{n}=\sum_{n=0}^{\infty}\left(a_{n}+b_{n}\right) x^{n}, x \in(-R, R)$
+
+2.减法：$\displaystyle\sum_{n=0}^{\infty} a_{n} x^{n}-\sum_{n=0}^{\infty} b_{n} x^{n}=\sum_{n=0}^{\infty}\left(a_{n}-b_{n}\right) x^{n}, x \in(-R, R)$
+
+3.乘法：$\displaystyle\left(\sum_{n=0}^{\infty} a_{n} x^{n}\right) \cdot\left(\sum_{n=0}^{\infty} b_{n} x^{n}\right), x \in(-R, R)$
+
+4.除法：$\frac{\displaystyle\sum_{n=0}^{\infty} a_{n} x^{n}}{\displaystyle\sum_{n=0}^{\infty} b_{n} x^{n}}, x \in(-R, R)$
+
+\begin{note}
+上述是无条件成立的，但是如果考虑$$
+\displaystyle\sum_{n=0}^{\infty}\left(a_{n} \pm b_{n}\right) x^{n}
+$$
+的收敛半径时，需要考虑$R_{1}=R_{1}$的情况
+\end{note}
+\subsection{幂级数的分析性质（连续、求导、积分）}
+设幂级数$\displaystyle\sum_{n=0}^{\infty} a_{n} x^{n}$的收敛半径为$R$，和函数为$S(x)$，则
+\begin{theorem}
+1.连续性：$S(x)$在收敛域上连续
+
+2.可导性（也称逐项可导性）$S(x)$在\textcolor[rgb]{1,0,0}{收敛区间}$(-R, R)$内可导，且可逐项求导，即
+$$
+S^{\prime}(x)=\left(\sum_{n=0}^{\infty} a_{n} x^{n}\right)^{\prime}=\sum_{n=0}^{\infty}\left(a_{n} x^{n}\right)^{\prime}=\sum_{n=0}^{\infty} n a_{n} x^{n-1}
+$$
+
+3.可积性（也称逐项可积性）$S(x)$在\textcolor[rgb]{1,0,0}{收敛区间}$(-R, R)$内可积，且可逐项积分，即
+$$
+\int_{0}^{x} f(x) \mathrm{d} x=\int_{0}^{x} \sum_{n=0}^{\infty} a_{n} x^{n} \mathrm{~d} x=\sum_{n=0}^{\infty} \int_{0}^{x} a_{n} x^{n} \mathrm{~d} x=\sum_{n=0}^{\infty} \frac{1}{n+1} a_{n} x^{n+1}
+$$
+\end{theorem}
+\begin{note}
+特别注意：在求导或积分后的幂级数与原幂级数有相同的收敛半径，但是\textcolor[rgb]{1,0,0}{不一定有相同的收敛域},仅仅针对区间的边界点
+\end{note}
+\subsection{函数的幂级数展开}
+\begin{definition}
+设函数在区间$\left(x_{0}-R, x_{0}+R\right)$上有定义，若
+$$
+f(x)=\sum_{n=0}^{\infty} a_{n}\left(x-x_{0}\right)^{n}
+$$对任意的$\left(x_{0}-R, x_{0}+R\right)$都成立，称函数$f(x)$在$x \in\left(x_{0}-R, x_{0}+R\right)$上能展开为$x-x_{0}$的幂级数，进一步，展开后在区间$x \in\left(x_{0}-R, x_{0}+R\right)$\textcolor[rgb]{1,0,0}{任意阶可导}
+\end{definition}
+\begin{theorem}[幂级数展开的唯一性]
+如果函数$f(x)$ 在区间 $\left(x_{0}-R, x_{0}+R\right)$上能展开为$x-x_{0}$的幂级数
+$$
+f(x)=\sum_{n=0}^{\infty} a_{n}\left(x-x_{0}\right)^{n}
+$$
+则$f(x)$ 在区间 $\left(x_{0}-R, x_{0}+R\right)$ 上任意阶可导, 且其展开式是唯一的, 其中
+$$
+a_{n}=\frac{f^{(n)}\left(x_{0}\right)}{n !}(n=0,1,2, \cdots)
+$$
+\end{theorem}
+\begin{note}
+唯一性定理保证了我们无论使用何种展开方式（直接展开或间接展开），最后的幂级数的结果是一样的
+\end{note}
+\begin{definition}
+若函数$f(x)$ 在 $x=x_{0}$ 处任意阶可导, 则称幂级数
+$$
+\sum_{n=0}^{\infty} \frac{f^{(n)}\left(x_{0}\right)}{n !}\left(x-x_{0}\right)^{n}
+$$
+为$f(x)$ 在 $x=x_{0}$ 处的泰勒级数
+
+特别的，$x_{0}=0$ 处的泰勒级数 $\displaystyle\sum_{n=0}^{\infty} \frac{f^{(n)}(0)}{n !} x^{n}$ 称为函数 $f(x)$ 的麦克劳林级数
+\end{definition}
+\begin{theorem}
+设 $f(x)$ 在 $x=x_{0}$ 处任意阶可导, 则 $\displaystyle\sum_{n=0}^{\infty} \frac{f^{(n)}\left(x_{0}\right)}{n !}\left(x-x_{0}\right)^{n}$在$\left(x_{0}-R, x_{0}+R\right)$上收敛于$\Leftrightarrow \displaystyle\lim _{n \rightarrow \infty} R_{n}(x)=0$，其中$R_{n}(x)=\frac{f^{(n+1)}(\xi)}{(n+1) !}\left(x-x_{0}\right)^{n+1}$ 为 $f(x)$ 在 $x_{0}$处的泰勒公式
+$$
+f(x)=\sum_{k=0}^{n} \frac{f^{(k)}\left(x_{0}\right)}{k !}\left(x-x_{0}\right)^{k}+R_{n}(x)
+$$中的余项$R_{n}(x)$
+\end{theorem}
+\subsection{常见函数的泰勒级数展开}
+1.$$
+\frac{1}{1-x}=1+x+x^{2}+\cdots+x^{n}+\cdots=\sum_{n=0}^{\infty} x^{n}(-1<x<1)
+$$
+
+2.
+$$
+\frac{1}{1+x}=1-x+x^{2}-\cdots+(-1)^{n} x^{n}+\cdots=\sum^{\infty}(-1)^{n} x^{n}(-1<x<1)
+$$
+
+3.
+$$
+e^{x}=1+x+\frac{x^{2}}{2 !}+\cdots+\frac{x^{n}}{n !}+\cdots=\sum_{n=0}^{\infty} \frac{x^{n}}{n !}
+$$
+
+4.
+$$
+\sin x=x-\frac{x^{3}}{3 !}+\cdots+\frac{(-1)^{n} x^{2 n+1}}{(2 n+1) !}+\cdots=\sum_{n=0}^{\infty} \frac{(-1)^{n} x^{2 n+1}}{(2 n+1) !}(-\infty<x<+\infty)
+$$
+
+5.
+$$
+\cos x=1-\frac{x^{2}}{2 !}+\cdots+\frac{(-1)^{n} x^{2 n}}{(2 n) !}+\cdots=\sum_{n=0}^{\infty} \frac{(-1)^{n} x^{2 n}}{(2 n) !}(-\infty<x<+\infty)
+$$
+
+6.
+$$
+\ln (1+x)=x-\frac{x^{2}}{2}+\cdots+\frac{(-1)^{n-1} x^{n}}{n}+\cdots=\sum_{n=1}^{\infty} \frac{(-1)^{n-1} x^{n}}{n}(-1<x \leqslant 1)
+$$
+
+7.
+$$
+(1+x)^{\alpha}=1+\alpha x+\frac{\alpha(\alpha-1)}{2 !} x^{2}+\cdots+\frac{\alpha(\alpha-1) \cdots(\alpha-n+1)}{n !} x^{n}+\cdots
+$$
+$$
+=\sum_{n=0}^{\infty} \frac{\alpha(\alpha-1) \cdots(\alpha-n+1)}{n !} x^{n}(-1<x<1)
+$$
+\begin{note}
+幂级数的展开方法：
+
+1.直接法（基本不用）
+
+2.间接展开法（常用）
+\end{note}
+\subsection{典型例题——求收敛域}
+
+\begin{example}
+求下列幂级数的收敛域
+
+1.$\displaystyle\sum_{n=1}^{\infty}(-1)^{n-1} \frac{3^{n} x^{n}}{\sqrt{n}}$
+
+2.$\displaystyle\sum_{n=1}^{\infty}(-1)^{n-1} \frac{x^{n}}{n^{n}}$
+
+3.$\displaystyle\sum_{n=1}^{\infty}(-1)^{n-1} \frac{3^{n} x^{2 n+1}}{\sqrt{n}}$
+
+4.$\displaystyle\sum_{n=1}^{\infty}\left(1+\frac{1}{n}\right)^{n^{2}} x^{2 n}$
+
+\end{example}
+\begin{example}
+设$\displaystyle\sum_{n=1}^{\infty} \frac{(x-a)^{n}}{n}$ 在 $x=-2$ 处条件收敛, 则 $\sum_{n=1}^{\infty} n^{2}(x-a)^{n}$ 在 $x=\ln \frac{1}{2}$处( \quad )
+
+A.绝对收敛
+
+B.条件收敛
+
+C.必发散
+
+D.敛散性由$a$决定
+\end{example}
+\textcolor[rgb]{1,0,0}{重要技巧：}将括号看做一个整体
+\begin{example}
+设幂级数$\displaystyle\sum_{n=1}^{\infty} a_{n}(x-1)^{n}$ 在 $x=0$收敛，在$x=2$发散，则该幂级数的收敛域为\underline{\quad\quad\quad\quad}
+\end{example}
+\subsection{典型例题——求幂级数展开}
+\begin{note}
+核心技巧：
+
+1.有限项与敛散性无关，强行凑成已知函数的幂级数展开
+
+2.看见复杂的形式（非标准形式）可以考虑“先积分再求导”或者“先求导再积分”
+
+3.注意基本公式的应用（如立方和、立方差、$1-x^{n}$等）
+\end{note}
+\begin{example}
+$$f(x)=\frac{x}{9+x^{2}}$$
+\end{example}
+
+\begin{example}
+$$f(x)=x \arctan x-\ln \sqrt{1+x^{2}}$$
+\end{example}
+
+\begin{example}
+$$f(x)=\frac{1}{4} \ln \frac{1+x}{1-x}+\frac{1}{2} \arctan x-x$$
+\end{example}
+
+\begin{example}
+$$f(x)=\ln \left(1+x+x^{2}+x^{3}+x^{4}\right)$$
+\end{example}
+\textcolor[rgb]{1,0,0}{在指定点展开}
+
+\begin{note}
+这里采用和不定积分一样的做法：看不懂就令
+\end{note}
+
+\begin{example}
+$$
+f(x)=\ln x \text {, 在 } x=1 \text { 处 }
+$$
+\end{example}
+
+\begin{example}
+$$
+f(x)=\sin x, \text { 在 } x=\frac{\pi}{4} \text { 处 }
+$$
+\end{example}
+\newpage
+\section{幂级数的求和（送分绝活）}
+\subsection{先看出答案和哪一个函数有关的方法（核心技巧）}
+首先来回忆一下上节内容：常见的幂级数展开
+
+1.$$
+\frac{1}{1-x}=1+x+x^{2}+\cdots+x^{n}+\cdots=\sum_{n=0}^{\infty} x^{n}(-1<x<1)
+$$
+
+2.
+$$
+\frac{1}{1+x}=1-x+x^{2}-\cdots+(-1)^{n} x^{n}+\cdots=\sum^{\infty}(-1)^{n} x^{n}(-1<x<1)
+$$
+
+3.
+$$
+e^{x}=1+x+\frac{x^{2}}{2 !}+\cdots+\frac{x^{n}}{n !}+\cdots=\sum_{n=0}^{\infty} \frac{x^{n}}{n !}
+$$
+
+4.
+$$
+\sin x=x-\frac{x^{3}}{3 !}+\cdots+\frac{(-1)^{n} x^{2 n+1}}{(2 n+1) !}+\cdots=\sum_{n=0}^{\infty} \frac{(-1)^{n} x^{2 n+1}}{(2 n+1) !}(-\infty<x<+\infty)
+$$
+
+5.
+$$
+\cos x=1-\frac{x^{2}}{2 !}+\cdots+\frac{(-1)^{n} x^{2 n}}{(2 n) !}+\cdots=\sum_{n=0}^{\infty} \frac{(-1)^{n} x^{2 n}}{(2 n) !}(-\infty<x<+\infty)
+$$
+
+6.
+$$
+\ln (1+x)=x-\frac{x^{2}}{2}+\cdots+\frac{(-1)^{n-1} x^{n}}{n}+\cdots=\sum_{n=1}^{\infty} \frac{(-1)^{n-1} x^{n}}{n}(-1<x \leqslant 1)
+$$
+
+7.
+$$
+(1+x)^{\alpha}=1+\alpha x+\frac{\alpha(\alpha-1)}{2 !} x^{2}+\cdots+\frac{\alpha(\alpha-1) \cdots(\alpha-n+1)}{n !} x^{n}+\cdots
+$$
+$$
+=\sum_{n=0}^{\infty} \frac{\alpha(\alpha-1) \cdots(\alpha-n+1)}{n !} x^{n}(-1<x<1)
+$$
+\begin{note}
+记忆方法：
+\newline
+\newline
+\end{note}
+\begin{example}
+求幂级数$\displaystyle\sum_{n=0}^{\infty} \frac{(-1)^{n}(n+1)}{(2 n+3) !} x^{2 n}$的和函数$S(x)$
+\end{example}
+\begin{solution}
+$$
+S(x)=\left\{\begin{array}{cl}
+(\sin x-x \cos x) /\left(2 x^{3}\right), & x \neq 0 \\
+1 / 6, & x=0
+\end{array}\right.
+$$
+\end{solution}
+\begin{example}[（2002真题）]
+\par
+（1）验证函数
+$$
+y(x)=1+\frac{x^{3}}{3 !}+\frac{x^{6}}{6 !}+\frac{x^{9}}{9 !}+\cdots+\frac{x^{3 n}}{(3 n) !}+\cdots(-\infty<x<+\infty)
+$$
+满足微分方程$y^{\prime \prime}+y^{\prime}+y=\mathrm{e}^{x}$
+
+（2）利用（1）的结果求幂级数$\displaystyle\sum_{n=0}^{\infty} \frac{x^{3 n}}{(3 n) !}$的和函数
+\end{example}
+\newpage
+\begin{example}[（2018选择题）]
+$$
+\sum_{n=0}^{\infty}(-1)^{n} \frac{2 n+3}{(2 n+1) !}=\underline{\quad\quad\quad\quad}
+$$
+\end{example}
+\begin{example}[（2019真题）]级数$\displaystyle\sum_{n=0}^{\infty} \frac{(-1)^{n}}{(2 n) !} x^{n}$ 在 $(0,+\infty)$内的和函数$S(x)=\underline{\quad\quad\quad\quad}$
+\end{example}
+\newline
+\newline
+\newline
+\subsection{幂级数的和函数的求法及秒杀技巧（特别注意下标的变化）}
+\begin{note}
+首先需要明确的是：
+
+1.在级数中，\textcolor[rgb]{1,0,0}{“有限项不影响级数的敛散性和收敛域”}
+
+2.在需要单独讨论的时候，将\textcolor[rgb]{1,0,0}{$0^{0}=1$}来处理，原因是因为连续性
+
+3.函数的重要改写在之前的章节中讲过，这里重复一下
+$$
+S(x)-S\left(x_{0}\right)=\int_{x_{0}}^{x} S^{\prime}(t) d t
+$$
+特别地，当$x_{0}=0$时，有
+$$
+S(x)-S(0)=\int_{0}^{x} S^{\prime}(t) d t
+$$
+当然还有在微分学和积分学的形式，这里不再赘述（自己翻之前的笔记）
+
+4.\textcolor[rgb]{1,0,0}{尤其注意“整体性”、“一致性”}
+\end{note}
+\subsection{补充内容：幂级数的下标变化}
+核心思想是通过适当的下标变化，将待求级数处理成我们熟悉的那几个级数（下标也处理成一致），\textcolor[rgb]{1,0,0}{差项就强行凑}
+\begin{note}
+（听课时补充）
+\newline
+\newline
+\end{note}
+考研数学范围内的和函数，大致可以分为如下三类
+\begin{itemize}
+    \item 系数$a_{n}$ 中的 $n$ 在分母上
+    \item 系数 $a_{n}$ 中的 $n$ 在分子上 $\left(n=\frac{n}{1}\right)$
+    \item 通过题干中的条件 (通常是 $a_{n}$ 和 $a_{n+1}$ 的递推式) 来构造微分方程（大题常考，已多次出现在真题中）
+\end{itemize}
+\subsection{和函数第一式——$n$在分母上}
+形如
+$
+\displaystyle\sum_{n=2}^{\infty} \frac{1}{\left(n^{2}-1\right) 2^{n}}, \sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{n(2 n-1) 3^{n}}, \sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{(2 n-1) ! 2^{2 n-2}} x^{2 n-1}, \sum_{n=1}^{\infty} \frac{1}{n(n+1)} x^{n}$
+的形式
+
+这是典型的送分题，操作方法如下
+\begin{note}
+
+1.形式统一（和$n$有关的尽量保持一致）
+
+2.\textcolor[rgb]{1,0,0}{“先求导后积分”}：注意为了方便求导，需要将$x$的指数部分与分母转化为一致，例如求$\displaystyle\sum_{n=0}^{\infty} \frac{1}{2 n+1} x^{2 n}$应该处理成
+$$
+\sum_{n=0}^{\infty} \frac{1}{2 n+1} x^{2 n}=\frac{1}{x} \sum_{n=0}^{\infty} \frac{1}{2 n+1} x^{2 n+1}
+$$
+对于$x=0$的情况单独讨论
+
+3.注意裂项（将原级数分成几个单独的级数分别求和函数）
+
+4.\textcolor[rgb]{1,0,0}{“核心技巧：保证分母的$n$和$x$的次数相等”}
+\end{note}
+\begin{example}[（2010真题，10分）]求幂级数$\displaystyle\sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{2 n-1} x^{2 n}$的收敛域及和函数
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\end{example}
+
+\begin{example}[（2012真题，10分）]求幂级数$\displaystyle\sum_{n=0}^{\infty} \frac{4 n^{2}+4 n+3}{2 n+1} x^{2 n}$的收敛域及和函数
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\end{example}
+
+\begin{example}
+求$\displaystyle\sum_{n=1}^{\infty} \frac{1}{n} x^{n}$的收敛域与和函数（此题结果作与“常见函数的幂级数展开”的补充，当作结论记忆）
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\end{example}
+\subsection{和函数第二式——$n$在分子上}
+形如$$\sum_{n=0}^{\infty} n x^{n}$$
+这是典型的送分题，操作方法如下
+\begin{note}
+
+1.形式统一（和$n$有关的尽量保持一致）
+
+2.\textcolor[rgb]{1,0,0}{“先积分后求导”}：注意为了方便积分，需要将$x$的指数部分\textcolor[rgb]{1,0,0}{指数部分比系数少$1$}，例如求$\displaystyle\sum_{n=0}^{\infty} n x^{n}$应该处理成
+$$
+\sum_{n=0}^{\infty} n x^{n}=\sum_{n=0}^{\infty}(n+1-1) x^{n}=\sum_{n=0}^{\infty}(n+1) x^{n}-\sum_{n=0}^{\infty} x^{n}
+$$
+这样做的目的是为了在“先积分”时刚好消去，因为
+$$
+\int(n+1) x^{n} d x=x^{n+1}
+$$
+
+3.注意裂项（将原级数分成几个单独的级数分别求和函数）
+
+4.\textcolor[rgb]{1,0,0}{“核心技巧：指数部分比系数少$1$”}
+\end{note}
+\begin{example}
+求$\displaystyle\sum_{n=0}^{\infty} n x^{n}$的收敛域与和函数
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\end{example}
+
+\begin{example}[（2012真题，10分）]求幂级数
+$\displaystyle\sum_{n=0}^{\infty} \frac{4 n^{2}+4 n+3}{2 n+1} x^{2 n}$的收敛域及和函数
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\end{example}
+
+\begin{example}求$\displaystyle\sum_{n=0}^{\infty} \frac{n^{2}+1}{2^{n} n !} x^{n}$
+的收敛域与和函数
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\end{example}
+
+\begin{example}
+\textcolor[rgb]{1,0,0}{补充习题}：求某些类似于幂级数的数项级数的和
+$$
+\sum_{n=1}^{\infty} \frac{1}{n 2^{n}}
+$$
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\end{example}
+\newpage
+\subsection{和函数第三式——构造微分方程}
+首先说，微分方程与级数结合是最简单的题目，没有之一。要熟练运用刚刚讲的下标变换
+
+我们只有一个目的：通过已知条件构造微分方程
+
+\begin{note}
+通过“逐项求导”，强行凑出题干中的递推式，主要是凑系数和重复出现$S(x)$
+\end{note}
+\begin{example}[（2013真题，10分）]设数列$\left\{a_{n}\right\}$满足条件：$a_{0}=3, a_{1}=1, a_{n-2}-n(n-1) a_{n}=0(n \geqslant 2)$，$S(x)$是幂级数$\displaystyle\sum_{n=0}^{\infty} a_{n} x^{n}$的和函数
+
+（1）证明 $S^{\prime \prime}(x)-S(x)=0$
+
+（2）求 $S(x)$ 的表达式
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\end{example}
+\begin{example}[（2020真题，10分）]设数列$\left\{a_{n}\right\}$ 满足 $a_{1}=1,(n+1) a_{n+1}=\left(n+\frac{1}{2}\right)a_{n}$
+
+证明：当$|x|<1$ 时幂级数 $\displaystyle\sum_{n=1}^{\infty} a_{n} x^{n}$ 收敛, 并求其和函数
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\end{example}
+
+
+\begin{example}
+已知$a_{0}=1, a_{1}=\frac{1}{2}$, 且当 $n \geqslant 2$, 有 $n a_{n}=\left[\frac{1}{2}+(n-1)\right] a_{n-1}$
+
+证明：当$|x|<1$时，幂级数$\displaystyle\sum_{n=0}^{\infty} a_{n} x^{n}$收敛，并求其和函数
+\end{example}
+\newpage
+\section{$Fourier$级数}
+\subsection{三角函数的正交性}
+三角函数系$\left\{1, \cos \frac{\pi}{l} x, \sin \frac{\pi}{l} x, \cos \frac{2 \pi}{l} x, \sin \frac{2 \pi}{l} x, \cdots, \cos \frac{n \pi}{l} x, \sin \frac{n \pi}{l} x, \cdots\right\}$任意两个不同的函数在区间$[-l,l]$上的积分等于$0$
+
+即
+$$
+\int_{-l}^{l} \cos \frac{n \pi}{l} x \mathrm{~d} x=\int_{-l}^{l} \sin \frac{n \pi}{l} x \mathrm{~d} x=0, n=1,2 \cdots
+$$
+
+$$
+\int_{-l}^{l} \sin \frac{m \pi}{l} x \cos \frac{n \pi}{l} x \mathrm{~d} x=0, m, n=1,2, \cdots
+$$
+
+$$
+\int_{-l}^{l} \cos \frac{m \pi}{l} x \cos \frac{n \pi}{l} x \mathrm{~d} x=\int_{-l}^{l} \sin \frac{m \pi}{l} x \sin \frac{n \pi}{l} x \mathrm{~d} x=0, m, n=1,2, \cdots, m \neq n
+$$
+
+\subsection{$Fourier$系数与$Fourier$级数}
+设$f(x)$ 以 $2 l$ 为周期或只定义在 $[-l, l]$ 上, 在 $[-l, l]$，且在$[-l, l]$上可积（通常$l=\pi$）
+
+在三角级数
+$$
+\frac{a_{0}}{2}+\sum_{n=1}^{\infty}\left(a_{n} \cos \frac{n \pi}{l} x+b_{n} \sin \frac{n \pi}{l} x\right)
+$$
+中，令
+$$
+a_{n}=\frac{1}{l} \int_{-l}^{l} f(x) \cos \frac{n \pi}{l} x \mathrm{~d} x, n=0,1,2, \cdots
+$$
+$$
+b_{n}=\frac{1}{l} \int_{-l}^{l} f(x) \sin \frac{n \pi}{l} x \mathrm{~d} x, n=1,2,3, \cdots
+$$
+则称之为函数$f(x)$的$Fourier$级数（以$2l$为周期），记为
+$$
+f(x) \sim \frac{a_{0}}{2}+\sum_{n=1}^{\infty}\left(a_{n} \cos \frac{n \pi}{l} x+b_{n} \sin \frac{n \pi}{l} x\right)
+$$
+对应的系数$a_{n}, b_{n}$ 称为 $f(x)$的$Fourier$系数
+
+特别地，若$l=\pi$，则有
+$$
+f(x) \sim \frac{a_{0}}{2}+\sum_{n=1}^{\infty}\left(a_{n} \cos n x+b_{n} \sin n x\right)
+$$
+\par
+对应的系数为
+$$
+a_{n}=\frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \cos n x \mathrm{~d} x, n=0,1,2, \cdots
+$$
+$$
+b_{n}=\frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \sin n x \mathrm{~d} x, n=1,2,3, \cdots
+$$
+\newpage
+\subsection{$Fourier$级数的收敛性——Dirichlet收敛定理（充分条件）}
+\begin{theorem}
+设$f(x)$是$[-\pi,\pi]$上的分段单调函数，除有限个第一类间断点外都是连续的，则$f(x)$的$Fourier$级数在$[-\pi,\pi]$上处处收敛，且收敛于
+$$
+f(x)\sim\frac{a_{0}}{2}+\sum_{n=1}^{\infty}\left(a_{n} \cos \frac{n \pi}{l} x+b_{n} \sin \frac{n \pi}{l} x\right)
+$$
+$$
+=\left\{\begin{array}{cl}
+f(x), & \text { 若 } x \in(-l, l) \text { 为 } f(x) \text { 的连续点, } \\
+\frac{1}{2}[f(x+0)+f(x-0)], & \text { 若 } x \in(-l, l) \text { 为 } f(x) \text { 的第一类间断点, } \\
+\frac{1}{2}[f(-l+0)+f(l-0)], & \text { 若 } x=\pm l .
+\end{array}\right.
+$$
+\end{theorem}
+
+\begin{note}
+上述定理也可以等价记忆为：
+\par
+1.$f(x)$在$[-l,l]$上连续，或只有有限个间断点，且均为第一类间断点
+
+2.$f(x)$在$[-l,l]$上只有有限个极值点
+\end{note}
+\subsection{偶延拓与奇延拓}
+\begin{note}
+偶延拓与偶延拓与奇延拓，就是利用构造新函数，将原本的非周期函数强行转化为$[-\pi,\pi]$上的偶函数或奇函数，且进一步拓展成整个实数域上的周期函数
+\end{note}
+\begin{theorem}{偶延拓}
+设$f(x)$ 是 $[0, \pi]$ 上的非周期函数, 令
+$$
+F(x)= \begin{cases}f(x), & 0 \leqslant x \leqslant \pi \\ f(-x), & -\pi \leqslant x<0\end{cases}
+$$
+则$F(x)$ 除 $x=0$ 外在 $[-\pi, \pi]$ 上为偶函数, 有
+$$
+f(x) \sim \frac{a_{0}}{2}+\sum_{n=1}^{\infty} a_{n} \cos n x
+\text{（余弦级数）}$$
+其中
+$$
+a_{n}=\frac{2}{\pi} \int_{0}^{\pi} f(x) \cos n x \mathrm{~d} x(n=0,1,2, \cdots)
+$$
+\end{theorem}
+
+\begin{theorem}{奇延拓}
+设$f(x)$ 是 $[0, \pi]$ 上的非周期函数, 令
+$$
+F(x)=\left\{\begin{array}{c}
+f(x), 0 \leqslant x \leqslant \pi \\
+-f(-x),-\pi \leqslant x<0
+\end{array}\right.
+$$
+则$F(x)$ 除 $x=0$ 外在 $[-\pi, \pi]$ 上为奇函数, 有
+$$
+f(x) \sim \sum_{n=1}^{\infty} b_{n} \sin n x
+\text{（余弦级数）}$$
+其中
+$$
+b_{n}=\frac{2}{\pi} \int_{0}^{\pi} f(x) \sin n x \mathrm{~d} x(n=1,2, \cdots)
+$$
+\end{theorem}
+\subsection{典型例题}
+\begin{example}
+设$f(x)$ 是周期为$2$的周期函数, 它在区间 $(-1,1]$ 上定义为
+$$
+f(x)= \begin{cases}2, & -1<x \leqslant 0 \\ x^{3}, & 0<x \leqslant 1\end{cases}
+$$
+则$f(x) \text { 的$Fourier$级数在 } x=1 \text { 处收敛于 }\underline{\quad\quad\quad\quad}$
+\end{example}
+\begin{example}
+设函数$f(x)=x^{2},x\in[0,\pi]$，将$f(x)$展开为$2\pi$为周期的$Fourier$级数，并证明
+$$
+\sum_{n=1}^{\infty} \frac{1}{n^{2}}=\frac{\pi^{2}}{6}
+$$
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
+
